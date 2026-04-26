@@ -29,11 +29,6 @@ To run this project on your local machine, follow these steps:
    
    ```
    Open your browser and navigate to http://127.0.0.1:5000.
-## 🌐 Deployment
-### Deploy to Render
-The repository includes a render.yaml file. Simply connect your GitHub account to Render, and it will automatically detect the settings to deploy your app.
-### Deploy to Vercel
-Since a vercel.app link is already present in your project description, you can easily redeploy or update it using the Vercel CLI or by linking the repo to your Vercel Dashboard.
 ## 📂 Project Structure
 ```text
 xalman-ytvid-dl/
