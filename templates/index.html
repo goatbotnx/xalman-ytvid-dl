@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Downloader - xalman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+        }
+
+        .container-box {
+            margin-top: 10%;
+            text-align: center;
+        }
+
+        .card {
+            background: #1e293b;
+            border: none;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        input {
+            border-radius: 10px;
+        }
+
+        .spinner {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container container-box">
+
+    <div class="card mx-auto" style="max-width: 600px;">
+
+        <h2 class="mb-3">🎥 YouTube Video Downloader</h2>
+
+        <form method="POST" action="/" onsubmit="showLoader()">
+            <input type="text" name="url" class="form-control mb-3"
+                   placeholder="Paste YouTube URL..." required>
+
+            <button class="btn btn-primary w-100">Fetch Video</button>
+        </form>
+
+        <div class="spinner mt-3" id="loader">
+            <div class="spinner-border text-light"></div>
+            <p>Loading...</p>
+        </div>
+
+        {% if video %}
+        <hr>
+
+        <h5>{{ video.title }}</h5>
+
+        <img src="{{ video.thumbnail }}" class="img-fluid rounded mb-3">
+
+        <p>⏱ Duration: {{ video.duration }} seconds</p>
+
+        <form method="POST" action="/download">
+            <input type="hidden" name="url" value="{{ video.url }}">
+            <button class="btn btn-success w-100">Download Best Quality</button>
+        </form>
+        {% endif %}
+
+    </div>
+</div>
+
+<script>
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
